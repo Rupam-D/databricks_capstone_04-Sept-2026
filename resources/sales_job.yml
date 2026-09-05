@@ -1,0 +1,26 @@
+resources:
+  jobs:
+    sales_job:
+      name: capstone_sales_job_dev
+
+      tasks:
+        - task_key: run_01_bronze_ingestion
+
+          notebook_task:
+            notebook_path: ../src/01_bronze_ingestion.ipynb
+          
+        - task_key: run_02_silver_cleaning
+
+          depends_on:
+            - task_key: run_01_bronze_ingestion
+
+          notebook_task:
+            notebook_path: ../src/02_silver_cleaning.ipynb
+
+        - task_key: run_03_gold_analytics
+
+          depends_on: 
+            - task_key: run_02_silver_cleaning
+
+          notebook_task:
+            notebook_path: ../src/03_gold_analytics.ipynb

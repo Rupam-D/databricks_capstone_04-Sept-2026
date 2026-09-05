@@ -1,0 +1,15 @@
+bundle:
+  name: databricks_capstone
+
+include:
+  - resources/*.yml
+
+targets:
+
+  dev:
+    mode: development
+    default: true
+
+  test:
+    mode: testing
+    
