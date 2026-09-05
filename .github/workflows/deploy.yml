@@ -4,7 +4,16 @@ on:
   push:
     branches:
       - main
-
+    paths:
+      - 'databricks.yml'
+      - 'resources/**'
+      - 'src/**'
+      - '.github/workflows/deploy.yml'
+    paths-ignore:
+      - 'data/**'
+      - 'dashboard/**'
+      - '*.md'
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
